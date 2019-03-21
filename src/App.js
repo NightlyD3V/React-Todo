@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
   handleChanges = event => {
-      console.log('event: ', event.target.value)
+      // console.log('event: ', event.target.value)
       this.setState({
           [event.target.name] : event.target.value
       });
@@ -40,6 +40,20 @@ class App extends React.Component {
         task: '',
       })
   }
+
+  toggleItem = (id) => {
+    //console.log(id);
+   const newObj =  this.state.theList.map(function (item) {
+      if(item.id === id) {
+        item.completed = !item.completed
+        return item;
+      } else {
+        return item;
+      }
+    });
+    this.setState({theList : newObj});
+  }
+
   removeFromList = event => {
     event.preventDefault();
     
@@ -56,8 +70,9 @@ class App extends React.Component {
                   task={this.state.task}
                   handleChanges={this.handleChanges}
                   updateList={this.updateList}
+                  removeFromList={this.removeFromList}
               />
-              <TodoList task={this.state.theList}/>
+              <TodoList task={this.state.theList} toggleItem={this.toggleItem}/>
           </div>
       )
   }

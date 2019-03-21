@@ -3,9 +3,10 @@ import React from 'react';
 import './Todo.css';
 
 function Todo(props) {
+    console.log(props);
     return ( 
-        <div className="todo-container">
-            <h2>{props.todoProp.task}</h2>
+        <div className="todo-container" onClick={() => props.toggleItem(props.todoProp.id)}>
+            <h2 className="todo-text">{props.todoProp.task}</h2>
         </div>
     )
 }

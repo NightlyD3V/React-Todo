@@ -5,9 +5,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
     background-color: #48BB84;
     padding: 30px;
     border-radius: 10px;
+    max-width: 800px;
 }
 .logo-container {
     display: flex;
@@ -32,6 +34,10 @@ body {
     border-radius: 5px;
     width: 90%;
     margin: 0 auto;
+}
+.todo-text {
+    padding: 10px;
+    font-family: 'Anton', sans-serif;
 }
 .todoform-input {
     border-bottom: 3px solid #EE3C49;
