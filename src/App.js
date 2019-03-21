@@ -30,6 +30,9 @@ class App extends React.Component {
 
   updateList = event => {
       event.preventDefault();
+      if (this.state.task === '') {
+        return '';
+      }
       const newItem = {
         task: this.state.task, 
         id: Date.now(),
@@ -43,7 +46,7 @@ class App extends React.Component {
 
   toggleItem = (id) => {
     //console.log(id);
-   const newObj =  this.state.theList.map(function (item) {
+   const newToggleObj =  this.state.theList.map(function (item) {
       if(item.id === id) {
         item.completed = !item.completed
         return item;
@@ -51,19 +54,20 @@ class App extends React.Component {
         return item;
       }
     });
-    this.setState({theList : newObj});
+    this.setState({theList : newToggleObj});
   }
 
   removeFromList = event => {
     event.preventDefault();
-    
+    const newRemoveObj = this.state.theList.filter(item => item.completed === false);
+    this.setState({theList : newRemoveObj});
   }
 
   render() {
       return (
           <div className="app-wrapper">
             <div className="logo-container">
-            <h2 className="app-header_text">What Do You Have To Do?</h2>
+            <h2 className="app-header_text">Todo App</h2>
             <img className="logo" src="img/checklist.svg" alt="List Logo"/>
             </div>
               <TodoForm className="app-todoform"

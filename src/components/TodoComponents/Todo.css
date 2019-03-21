@@ -14,47 +14,75 @@ body {
 .logo-container {
     display: flex;
 }
+
+@keyframes hover {
+    from {margin-bottom: 0px;}
+    to {margin-top: 5px;}
+}
 .logo {
     width: 50px;
     height: 50px;
     margin-top: 10px;
+    bottom: 10px;
+    animation: hover 1s linear 2s infinite alternate;
 }
 .app-header_text {
     padding: 10px;
+    color: darkslategray;
     font-family: 'Anton', sans-serif;
 }
 .task-list {
-    background-color: #2BAA6D;
-    width: 350px;
+    width: 365px;
+    margin: 5px;
 }
 .todo-container {
     box-sizing: border-box;
     text-align: center;
     background-color: white;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    margin-top: 5px;
+}
+.todo-remove {
+    text-decoration: line-through;
+    text-decoration-color: white;
+    background-color: #EE3C49;
 }
 .todo-text {
-    padding: 10px;
     font-family: 'Anton', sans-serif;
+    margin: 5px;
 }
+/* .todo-form {
+} */
 .todoform-input {
-    border-bottom: 3px solid #EE3C49;
+    border-bottom: 5px solid lightskyblue;
     border-top: 0px;
     border-right: 0px;
     border-left: 0px;
+    border-radius: 5px 0px 0px 5px;
     padding: 9px;
     font-size: 1rem;
 }
 .add-button {
     background-color: #8ADC37;
     border: none;
-    padding: 12px;
+    padding: 11px;
     width: 70px;
+    border-bottom: 5px solid green;
+    font-weight: bold;
+}
+.add-button:hover {
+    background-color: #6DC910;
 }
 .remove-button {
     background-color: #EE3C49;
     border: none;
-    padding: 12px;
+    padding: 11px;
+    border-bottom: 5px solid #A80612;
+    font-weight: bold;
+    border-radius: 0px 5px 5px 0px;
+}
+.remove-button:hover {
+    background-color: red;
 }
