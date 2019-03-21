@@ -1,18 +1,11 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+// Import CSS
+import './components/TodoComponents/Todo.css';
 
 const TheData = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
+  
 ];
 
 class App extends React.Component {
@@ -40,24 +33,27 @@ class App extends React.Component {
       const newItem = {
         task: this.state.task, 
         id: Date.now(),
+        completed: false,
       }
       this.setState({
-        theList: [...this.state.theList, newItem]
+        theList: [...this.state.theList, newItem],
+        task: '',
       })
   }
-  // removeFromList = event => {
-  //   event.preventDefault();
-  //   const deleteItem = {
-  //     task: this.state.task = '',
-  //   }
-  // }
+  removeFromList = event => {
+    event.preventDefault();
+    
+  }
 
   render() {
       return (
-          <div className="form-wrapper">
-            <h2>Welcome to your Todo App!</h2>
-              <TodoForm 
-                  value={this.state.task}
+          <div className="app-wrapper">
+            <div className="logo-container">
+            <h2 className="app-header_text">What Do You Have To Do?</h2>
+            <img className="logo" src="img/checklist.svg" alt="List Logo"/>
+            </div>
+              <TodoForm className="app-todoform"
+                  task={this.state.task}
                   handleChanges={this.handleChanges}
                   updateList={this.updateList}
               />
