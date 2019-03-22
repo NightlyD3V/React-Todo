@@ -3,7 +3,7 @@ import React from 'react';
 import './Todo.css';
 
 function Todo(props) {
-    console.log(props);
+    // console.log(props);
     return ( 
         <div className={`todo-container ${props.todoProp.completed ? 'todo-remove' : ''}`} onClick={() => props.toggleItem(props.todoProp.id)}>
             <h2 className="todo-text">{props.todoProp.task}</h2>

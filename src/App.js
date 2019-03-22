@@ -3,9 +3,8 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 // Import CSS
 import './components/TodoComponents/Todo.css';
-
 const TheData = [
-  
+
 ];
 
 class App extends React.Component {
@@ -38,10 +37,12 @@ class App extends React.Component {
         id: Date.now(),
         completed: false,
       }
+      const newList = [...this.state.theList, newItem]
+      localStorage.setItem('siteData', JSON.stringify(newList));
       this.setState({
-        theList: [...this.state.theList, newItem],
+        theList: newList,
         task: '',
-      })
+      });
   }
 
   toggleItem = (id) => {
@@ -60,9 +61,16 @@ class App extends React.Component {
   removeFromList = event => {
     event.preventDefault();
     const newRemoveObj = this.state.theList.filter(item => item.completed === false);
+    localStorage.setItem('siteData', JSON.stringify(newRemoveObj));
     this.setState({theList : newRemoveObj});
   }
 
+  componentDidMount() {
+    this.setState({
+      theList: JSON.parse(localStorage.getItem('siteData')),
+    })
+  }
+ 
   render() {
       return (
           <div className="app-wrapper">

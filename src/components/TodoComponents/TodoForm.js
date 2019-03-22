@@ -4,7 +4,7 @@ import './Todo.css';
 
 const TodoForm = props => {
     return (
-        <form class="todo-form">
+        <form className="todo-form">
             <input className="todoform-input" 
                 type="text"
                 name="task"
